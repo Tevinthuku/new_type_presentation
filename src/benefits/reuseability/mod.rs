@@ -5,7 +5,7 @@ mod old {
     }
 
     impl User {
-        fn validate_user(name: String, email: String) -> anyhow::Result<Self> {
+        fn new(name: String, email: String) -> anyhow::Result<Self> {
             let email = validate_email(email)?;
             Ok(Self { name, email })
         }
@@ -23,7 +23,7 @@ mod old {
     mod communication {
         use super::{validate_email, Business};
 
-        async fn contact_business(business: &Business) -> anyhow::Result<()> {
+        async fn send_email(business: &Business) -> anyhow::Result<()> {
             let valid_business_email = validate_email(business.email.clone())?;
 
             todo!()
@@ -46,7 +46,7 @@ mod new {
     }
 
     impl User {
-        fn validate_user(name: String, email: String) -> anyhow::Result<Self> {
+        fn new(name: String, email: String) -> anyhow::Result<Self> {
             let email = Email::new(email)?;
             Ok(Self { name, email })
         }

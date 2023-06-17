@@ -21,6 +21,14 @@ mod national_id {
         let id = NationalId("1234456".to_owned());
         println!("{id}")
     }
+    #[cfg(test)]
+    #[test]
+    fn test_as_ref_works() {
+        let id = NationalId("1234456".to_owned());
+        let id = id.as_ref();
+        println!("{id}");
+    }
+
 }
 
 mod age_related {

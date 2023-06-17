@@ -10,10 +10,6 @@ mod old {
         teacher: String,
     }
 
-    struct Teacher {
-        id: u64,
-        name: String,
-    }
 
     struct Subject {
         name: String,
@@ -22,7 +18,7 @@ mod old {
 }
 
 mod new {
-    struct StudentId(u64); // change from u64 to Uuid;
+    struct StudentId(u64);
 
     struct Student {
         id: StudentId,
@@ -35,10 +31,6 @@ mod new {
         teacher: String,
     }
 
-    struct Teacher {
-        id: u64,
-        name: String,
-    }
 
     struct Subject {
         name: String,

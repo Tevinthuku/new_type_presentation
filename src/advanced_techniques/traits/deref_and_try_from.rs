@@ -4,17 +4,6 @@ use anyhow::bail;
 
 struct NonEmptyString(String);
 
-impl TryFrom<String> for NonEmptyString {
-    type Error = anyhow::Error;
-
-    fn try_from(value: String) -> Result<Self, Self::Error> {
-        if value.trim().is_empty() {
-            bail!("Value cannot be empty")
-        }
-        Ok(Self(value))
-    }
-}
-
 impl Deref for NonEmptyString {
     type Target = String;
 
@@ -26,6 +15,17 @@ impl Deref for NonEmptyString {
 impl DerefMut for NonEmptyString {
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.0
+    }
+}
+
+impl TryFrom<String> for NonEmptyString {
+    type Error = anyhow::Error;
+
+    fn try_from(value: String) -> Result<Self, Self::Error> {
+        if value.trim().is_empty() {
+            bail!("Value cannot be empty")
+        }
+        Ok(Self(value))
     }
 }
 
