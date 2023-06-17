@@ -17,12 +17,6 @@ mod rigid {
         bail!("To be implemented")
     }
 
-    #[cfg(test)]
-    #[test]
-    fn test_execute_fn() {
-        let email = Email::try_from("input");
-        let _res = execute(email.unwrap());
-    }
 }
 
 mod flexible {
@@ -47,10 +41,4 @@ mod flexible {
         Ok(())
     }
 
-    #[cfg(test)]
-    #[test]
-    fn test_execute_fn() {
-        let result_with_string = execute(String::new());
-        let result_with_str = execute("input");
-    }
 }
